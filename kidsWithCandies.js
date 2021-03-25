@@ -1,11 +1,13 @@
 //Leetcode problem #1431
 //Testcase worked, but was not accepted by leetcode 3/23 not sure why.
+//Update passed leetcode 3/24 (moved output variable inside function).
 
 const candies = [4,2,1,1,2];
 const extraCandies = 1;
-let output = [];
+
 
 var kidsWithCandies = function (candies, extraCandies) {
+  let output = [];
   let i = 0;
   let j = 0;
   while (i < candies.length) {
@@ -16,11 +18,11 @@ var kidsWithCandies = function (candies, extraCandies) {
     if (candies[i] + extraCandies < candies[j]) {
       output.push(false);
       i++;
+      j = 0;
     } else {
       output.push(true);
       i++;
       j = 0;
-      continue;
     }
   }
   return output;
